@@ -14,18 +14,11 @@
 #### LVS
 ### Day 3
 #### Silicon Manufacturing Process
-#### Design rules
-#### Frontend rule
-#### Wells and taps
-#### Deep nwell
-#### Device Rules
-##### Resistors
-##### Capacitor types
-##### Miscellaneous DRC rule
+#### Design rules: Frontend rule, Wells and taps, Deep nwell, Device Rules, Miscellaneous DRC rule
 #### Density rule
 #### Recommended rules
 #### ERC (electrical rule check)
-#### DRC Labs
+#### Labs
 ### Day 4
 #### RTL to GDSII flow
 ### Day 5
