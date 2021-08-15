@@ -312,13 +312,13 @@ Stress rule: metal delamination, causes metal cracking due to mechanical stress,
 
 **Density rule**
 
-![](RackMultipart20210815-4-n15kyl_html_41c331f0e1971134.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_9_uneven_metal.png)
 
 Oxide layer forms on metal layer during fabrication process.
 
 They are polished, we can see bumps there due to uneven metal, the bumps should be very less hence there is a metal density rule to avoid it.
 
-![](RackMultipart20210815-4-n15kyl_html_8e0305d83ac784de.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_10_dense_metal.png)
 
 **Recommended rules**
 
@@ -354,7 +354,7 @@ For spacing select a module and move it with 2,4,6,8 keys, else we can move them
 
 To avoid notch rule select the area and shift it by selecting shift+a and 2468 keys.
 
-![](RackMultipart20210815-4-n15kyl_html_5b5fd9b6f62a8333.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_11_spacingLab.png)
 
 Drc fixed snapshot Exercise 1
 
@@ -364,7 +364,7 @@ Vias can also be fixed if its size is not matching, we can resize them like notc
 
 We can see contact cut by using cif see MCON command (MCON is the element it is to be found from details)
 
-![](RackMultipart20210815-4-n15kyl_html_fa14edc2ab9b9c04.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_12_VIALab.png)
 
 Exercise 2 Fixed (Via DRC)
 
@@ -372,7 +372,7 @@ Exercise 2 Fixed (Via DRC)
 
 Minimum area error occurs when we move from li to m2 where only a small m1 is used hence less error.
 
-![](RackMultipart20210815-4-n15kyl_html_92e0a5e84eb1f218.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_13_AreaLab.png)
 
 DRC area error fixed while moving from li to m2 through m1
 
@@ -382,7 +382,7 @@ The DRC style should be full, else DRC violation won&#39;t be reported.
 
 Nwell require ntap, to add ntap we can add nsubstrateendiff above an nwell. But still error will be there as it needs to be connected to ground which is done during ERC, so foundry checks for contact to this and assumes that a gnd or pwr is connected to it add nsubstrateencontace.
 
-![](RackMultipart20210815-4-n15kyl_html_9d0493378132391d.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_14_well_tap_lab.png)
 
 DRC wells and tap fixes
 
@@ -394,7 +394,7 @@ It is placed in boundary of chip to protect it from external things, like sawing
 
 Without adding ring cell we can have hundreds of error.
 
-![](RackMultipart20210815-4-n15kyl_html_971d3bf83fc14b86.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_15_latchup_lab.png)
 
 Latchup rule fixed by adding tap cell
 
@@ -404,7 +404,7 @@ As it is an ERC we need to do extraction before it then antennacheck command is 
 
 It can be due to high aspect ratio of wire so to avoid it we connect it to diode.
 
-![](RackMultipart20210815-4-n15kyl_html_84a69ff873c79ff9.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_16_antenna_lab.png)
 
 Antenna violation fixed
 
@@ -412,11 +412,11 @@ Desnity rule
 
 For that we can have under density or overdensity, we are using a python scripts to take care of this.
 
-![](RackMultipart20210815-4-n15kyl_html_f801ee85eb728138.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_17_densiy_lab.png)
 
 Density rule fixed
 
-![](RackMultipart20210815-4-n15kyl_html_46e13c1e3e6b7210.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_18_density_rep.png)
 
 Metal1 density increased from 5% to 58.1% after using the python script
 
@@ -501,7 +501,7 @@ We can run the openlane flow by two ways.
 
 **Introduction:**
 
-![](RackMultipart20210815-4-n15kyl_html_967764d89c20de66.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_1_PV_flow.png)
 
 Physical verification flow
 
@@ -524,7 +524,7 @@ One is netlist from layout, other netlist depends on our flow. Some of them are 
 
 For LVS it is better if the two netlists have same hierarchy. But layout can have more hierarchy deep down since they add some extra things. In that case LVS flattens them and compare.
 
-![](RackMultipart20210815-4-n15kyl_html_eab26b6d9cd7e604.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_2_diffpiname.png)
 
 Cases where LVS fails: it is assumed VPB and VPWR are same but tool don&#39;t understand it.
 
@@ -532,7 +532,7 @@ Simulation netlist vs LVS netlist
 
 Simulation netlist is used to extract parasitic for more accurate delay calculations. But they are added as components (R,C) hence shouldn&#39;t be used for LVS. As it will affect matching process.
 
-![](RackMultipart20210815-4-n15kyl_html_414b92ae10585958.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_3_layout_resistance.png)
 
 **Netgen:**
 
@@ -558,7 +558,7 @@ Then it again given a new hash number to the devices based on which net its port
 
 This is done in iterations till each hash number has exactly two devices (or the number of partitions i.e. hash number is equal to number of devices).
 
-![](RackMultipart20210815-4-n15kyl_html_724d932f9c42412a.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_4_partition_algo.png)
 
 Partitions modified with iterations
 
@@ -576,7 +576,7 @@ Finally LVS also performs properties of device like W,L etc.
 
 Fingers of transistor: Width may be very large so it is divided into different fingers to reduce width by number of finger times. But they are equivalent and should be understood by tool.
 
-![](RackMultipart20210815-4-n15kyl_html_22bc648597afb8fd.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_5_dev_merge.png)
 
 Similar devices that should be understood by LVS tool
 
@@ -596,7 +596,7 @@ If two netlists have undefined cells but are defined in the same way, then netge
 
 After running LVS the rep file is dumped (default name comp.log) check it for net and device mismatch. Device partitions is also reported.
 
-![](RackMultipart20210815-4-n15kyl_html_fdc321ec1a69fa9c.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_6_Lab1.png)
 
 In netgen when we read new design the tool will have memory of previous design so we either must close and open it again or use **reinitialize** command.
 
@@ -604,19 +604,19 @@ If we declare a design without definition like before in a subcircuit it will sa
 
 If we change pin order or swap pins then netgen won&#39;t have a problem if pins are consistent but for top level module it will be a problem as it can cause severe problems in future.
 
-![](RackMultipart20210815-4-n15kyl_html_e365c107cf336810.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_7_lab_mismatch.png)
 
 On swapping pin A and B netlists match but netgen shows that pin matching fails.
 
 If we define a subckt but the definition is empty then netgen treats that as black box. It is done to specify pin order correctly.
 
-![](RackMultipart20210815-4-n15kyl_html_452948153bd00157.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_8_cellrename.png)
 
 LVS run with one cell1 renamed to cell4. Here cell4 and cell 1 are not matched but they remain in the random partition of unmatched cells hence shown as above.
 
 To specify to netgen that we can swap pins (like a resistor or Capacitor). We are using permute command and specify cell and pin name (so that you don&#39;t permute other devices like diode). Like below,
 
-![](RackMultipart20210815-4-n15kyl_html_41f71a1d45526bf7.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_9_permute_lab.png)
 
 Report of using permute command to swap pins of a resistor.
 
