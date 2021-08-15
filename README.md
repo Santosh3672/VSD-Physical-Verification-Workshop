@@ -187,7 +187,7 @@ Snippet of LVS run between C extracted layout and library cell spice model
 
 It si important to understand manufacturing process as it will help us understand about DRC rules.
 
-![](RackMultipart20210815-4-n15kyl_html_355c0b96c8d22018.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_1_planar_process.png)
 
 In planar process the materials are deposited in top of or implanted into a substrate (silicon wafer)
 
@@ -195,7 +195,7 @@ Transistors and resistors, cap and diode are drawn to wafer by combination of li
 
 Masks are high resolution elements, covers some area and exposes some area so that they can be doped, or removed or different task can be done on that and chip can be made.
 
-![](RackMultipart20210815-4-n15kyl_html_35529740dca5d713.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_2_Opical.png)
 
 On exposure to light photoresist is broken down and removed then doping can be done.
 
@@ -207,7 +207,7 @@ So, the spacing rules are decided where the probability of failure is constant 1
 
 If we violate it then foundry will not accept this as their yield will be reduced.
 
-![](RackMultipart20210815-4-n15kyl_html_633aeff28c30a3c7.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_3_Failure_rate_DRC.png)
 
 **Design rules:**
 
@@ -227,7 +227,7 @@ Local interconnect is placed in between polysilicon and metal layer and had inte
 
 So it is only used for local connection (like within a cell) hence it has rule that aspect ratio should be less than 10 (more like a design guideline to avoid IR drop)
 
-![](RackMultipart20210815-4-n15kyl_html_5976fa4136548dfa.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_4_LI.png)
 
 **Frontend rule**
 
@@ -237,7 +237,7 @@ Pdk generates devices which satisfies all these rules.
 
 In magic poly layer and ndiff layers are different when they are put one above another a devife is formed.
 
-![](RackMultipart20210815-4-n15kyl_html_45291a2ee44943c2.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_5_Polydiff.png)
 
 Some of the frontend rules are:
 
@@ -255,7 +255,7 @@ The gates have no drc check as they are imported from libraries, if we create wi
 
 Normally a well is already present, we add a diffusion layer and poly above it above which a metal is added as gate, in diff only we have source and drain. Say n well and pdiff so here we add a n type diff called ntap which is electrically connected to nwell and hence it is provided voltage to reverse bias the mos and reduce leakage current.
 
-![](RackMultipart20210815-4-n15kyl_html_4a9e908ab7f15eeb.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_6_tapcell.png)
 
 There should be spacing between ntap and pdiff layer. Which is also included in sets of rules.
 
@@ -263,11 +263,11 @@ There should be spacing between ntap and pdiff layer. Which is also included in 
 
 In normal CMOS the nfet is connected to the p-substrate and is affected by noise from all different gates, thought nwell is isolated from it (due to the Vdd and Gnd provided causing reverse-bias).
 
-![](RackMultipart20210815-4-n15kyl_html_d0ea362b0f2d8f77.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_7_CMOS.png)
 
 With a deep nwell as shown below the noise is avoided.
 
-e ![](RackMultipart20210815-4-n15kyl_html_24abcb615d5b90f9.png)
+e ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_8_CMOS_nwell.png)
 
 Now a deep nwell is used which is sandwitched by p-substrate and p-well, ofcourse with nwell present. Here both nfet and pfet are free from noise.
 
