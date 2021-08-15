@@ -1,5 +1,40 @@
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Workshop-Flyer.jpeg)
 # VSD Physical verification using Sky 130 workshop Aug 11-16
+
+## Contents
+### Day 1:
+#### Introduction
+#### Skywater pdk layers
+#### Skywater devices
+### Day 2
+#### Introduction
+#### GDS format
+#### Extraction
+#### DRC (Design rule check)
+#### LVS
+### Day 3
+#### Silicon Manufacturing Process
+#### Design rules
+#### Frontend rule
+#### Wells and taps
+#### Deep nwell
+#### Device Rules
+##### Resistors
+##### Capacitor types
+##### Miscellaneous DRC rule
+#### Density rule
+#### Recommended rules
+#### ERC (electrical rule check)
+#### DRC Labs
+### Day 4
+#### RTL to GDSII flow
+### Day 5
+#### Introduction:
+#### Netgen
+##### Netgen core matching algorithm
+##### Netgen prematch analysis
+#### Labs
+
 ## Day 1:
 ### Introduction
 Skywater 130 : Skywater is name of foundry and it is based on 130nm technology.
