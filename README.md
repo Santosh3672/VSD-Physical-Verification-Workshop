@@ -1,7 +1,8 @@
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Workshop-Flyer.jpeg)
-**Day 1:**
+# VSD Physical verification using Sky 130 workshop Aug 11-16
+##Day 1:
 
-Skywater 130 : skywater is name of foundry and it is based on 130nm technology.
+Skywater 130 : Skywater is name of foundry and it is based on 130nm technology.
 
 PDK (Process design kit) : Bundles of files and documentation needed by chip designer to work with process.
 
@@ -67,7 +68,7 @@ Above is the console snippet for analog simulation of an inverter. Extract netli
 
 Result of above simulation to verify that the inverter runs as expected in presence of parasitic capacitances as well.
 
-**Day 2**
+##Day 2
 
 **Introduction**
 
@@ -180,7 +181,7 @@ netgen -batch lvs &quot;layout.spice\_loc designsubckt&quot; &quot;reference.spi
 
 Snippet of LVS run between C extracted layout and library cell spice model
 
-**Day 3**
+##Day 3
 
 **Silicon Manufacturing Process**
 
@@ -419,7 +420,7 @@ Density rule fixed
 
 Metal1 density increased from 5% to 58.1% after using the python script
 
-**Day 4**
+## Day 4
 
 Open lane flow:
  It is a flow to convert RTL to GDSII using RTL file and PDK files as input.
@@ -496,7 +497,7 @@ We can run the openlane flow by two ways.
 1. Non interactive method: Here a predefined script will run and will perform all the above-mentioned steps where we cant change anything interactively.
 2. Interactive method: Here each steps are run one-by-one and we can modify each steps and change parameters based on previous steps results.
 
-**Day 5**
+## Day 5
 
 **Introduction:**
 
