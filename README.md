@@ -1,7 +1,7 @@
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Workshop-Flyer.jpeg)
 # VSD Physical verification using Sky 130 workshop Aug 11-16
 ## Day 1:
-
+### Introduction
 Skywater 130 : Skywater is name of foundry and it is based on 130nm technology.
 
 PDK (Process design kit) : Bundles of files and documentation needed by chip designer to work with process.
@@ -17,7 +17,7 @@ Open\_pdk: Open source EDA tools and libraries. Some of the open source tools in
 
 Open\_pdk also adds foundry and 3rd party libraries.
 
-**Skywater pdk layers**
+### Skywater pdk layers
 
 There are two layers:
 
@@ -28,24 +28,24 @@ MiM cap layer: MiM (Metal insulator Metal) is insertion of metal layer between t
 
 Redistribution metal layer: A copper layer place above the highest metal layer that is used for solder lamp. Not a part of design hence a separate gds is required for this.
 
-**Skywater devices**
+### Skywater devices
 
 Contains basic devices like:
 
-1. NPN or PNP transitor
-2. MOSfet (p and n channel)
-3. Resistor
-  1. Pollysilicon
-  2. Diffusion
-  3. Pwell
-4. Reference layout
-5. Hidden mask layer
+i. NPN or PNP transitor
+ii. MOSfet (p and n channel)
+iii. Resistor
+  a. Pollysilicon
+  b. Diffusion
+  c. Pwell
+iv. Reference layout
+v. Hidden mask layer
 
 **Skywater libraries**
 
 Library cells are of 3 types:
 
-1. Digital std cell:
+i. Digital std cell:
 
 Contains different types of cells like low power, low leakage, high speed, etc.
 
@@ -53,12 +53,12 @@ Naming of library: sky130\_vendor\_library-type[-name]
 
 Cellname : libraryname\_\_gatename
 
-2. I/O cells
-3. Primitive devices:
+ii. I/O cells
+iii. Primitive devices:
 
 Contains elements with very specific layout normally provided by foundry. Eg, RF resistor (carefully prepared to avoid noise and signal attenuation), ESD protection devices, parallel plate capacitance.
 
-4. 3rd party libraries: Like SRAM and NVRAM
+iv. 3rd party libraries: Like SRAM and NVRAM
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D1_analog_sim_console.png)
 
@@ -70,7 +70,7 @@ Result of above simulation to verify that the inverter runs as expected in prese
 
 ## Day 2
 
-**Introduction**
+### Introduction
 
 Physical Verification has two parts
 
@@ -82,7 +82,7 @@ LVS (layout vs schematic): To verify that the layout matches a simulation netlis
 
 Physical design flow in with DRC and LVS
 
-**GDS format**
+### GDS format
 
 GDS (graphic design system) is a stream format which stores the information about layout. It is stored in ASCII format.
 
@@ -98,7 +98,7 @@ Gds read \&lt;file\_location\&gt; is the command to read it in magic
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_3%20and%20gate%20gds%20in%20magic.png)
 
-2 input and gate gds file read in magic
+Two input and gate gds file read in magic
 
 Since it has no port related information we can import lef file after gds file is read it will not overwrite the cells but annotate extra metadata.
 
@@ -106,7 +106,7 @@ Similarly, port order can be annotated from spice file. (though these are not re
 
 When we read only lef file without gds file, only place and route details like wire and pins will be seen without transistor present.
 
-**Extraction**
+### Extraction
 
 It is a process where parasitic information is &quot;extracted&quot; from the layout (as it contains metal layers and spacing information) and then it is converted to a netlist where these parasites (R, L, C or K) are incorporated in the.
 
@@ -130,7 +130,7 @@ ext2spice cthresh \&lt;value\&gt; : suppres capacitance below specified value
 
 ext2spice : creates .spice file.
 
-**DRC (Design rule check)**
+### DRC (Design rule check)
 
 Magic has 3 types of DRC setting which can be set in the console:
 
@@ -163,7 +163,7 @@ In the lab I intentionally misplaced an and cell in both horizontal and vertical
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_7%20XOR%20operation%20in%20magic.png)
 
-**LVS:**
+### LVS
 
 It compares the spice(netlist) files of layout and simulation to check if the two netlists are equivalent in terms of electrical connectivity.
 
@@ -183,7 +183,7 @@ Snippet of LVS run between C extracted layout and library cell spice model
 
 ## Day 3
 
-**Silicon Manufacturing Process**
+### Silicon Manufacturing Process
 
 It si important to understand manufacturing process as it will help us understand about DRC rules.
 
@@ -209,7 +209,7 @@ If we violate it then foundry will not accept this as their yield will be reduce
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_3_Failure_rate_DRC.png)
 
-**Design rules:**
+### Design rules
 
 Width rule: If wire width too small then chance of open circuit. Mostly wires are routed at minimum width (may have high resistance). nwell width should also be above a limit.
 
@@ -229,7 +229,7 @@ So it is only used for local connection (like within a cell) hence it has rule t
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_4_LI.png)
 
-**Frontend rule**
+### Frontend rule
 
 Rules related to process devices like transistor, resistor, etc.
 
@@ -251,7 +251,7 @@ Different version of gates (low vt, high vt, etc) have different symbols and hav
 
 The gates have no drc check as they are imported from libraries, if we create without these libraries then there will be error.
 
-**Wells and taps:**
+### Wells and taps
 
 Normally a well is already present, we add a diffusion layer and poly above it above which a metal is added as gate, in diff only we have source and drain. Say n well and pdiff so here we add a n type diff called ntap which is electrically connected to nwell and hence it is provided voltage to reverse bias the mos and reduce leakage current.
 
@@ -259,7 +259,7 @@ Normally a well is already present, we add a diffusion layer and poly above it a
 
 There should be spacing between ntap and pdiff layer. Which is also included in sets of rules.
 
-**Deep nwell?**
+### Deep nwell
 
 In normal CMOS the nfet is connected to the p-substrate and is affected by noise from all different gates, thought nwell is isolated from it (due to the Vdd and Gnd provided causing reverse-bias).
 
@@ -267,7 +267,7 @@ In normal CMOS the nfet is connected to the p-substrate and is affected by noise
 
 With a deep nwell as shown below the noise is avoided.
 
-e ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_8_CMOS_nwell.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_8_CMOS_nwell.png)
 
 Now a deep nwell is used which is sandwitched by p-substrate and p-well, ofcourse with nwell present. Here both nfet and pfet are free from noise.
 
@@ -277,22 +277,22 @@ Some of its design rules:
 - There should be a fence that should overlap nwell with a min width.
 - Huge min spacing.
 
-**Device Rules:**
+### Device Rules
 
-**Resistors:**
+#### Resistors
 
 p-diff resistor: not used as they have pn junction and leaks current
 
 polyresistors: these are used (XHR extra high resistor 350ohm/sq, UHR ultra 2000 ohm/sq)
 
-**Capacitor types:**
+#### Capacitor types
 
 1. Varactors: it is like mosfet but with small differences (rules similar to mosfet)
 2. MOScap: mosfet with wiring changes (rules similar to mosfet)
 3. Vertical parallel plate: also called MoM metal oxide metal DRC rules same as metal layer
 4. MiM : metals between metal layers (have rules that are helpful to get desired capacitance)
 
-Miscellaneous DRC rule:
+#### Miscellaneous DRC rule
 
 - Off grid error (cells should be on grid point)
 - Angle limitation
@@ -310,7 +310,7 @@ Other fix is to change metal layers.
 
 Stress rule: metal delamination, causes metal cracking due to mechanical stress, to avoid it metals are slotted in direction of current.
 
-**Density rule**
+### Density rule
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_9_uneven_metal.png)
 
@@ -320,7 +320,7 @@ They are polished, we can see bumps there due to uneven metal, the bumps should 
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D3_10_dense_metal.png)
 
-**Recommended rules**
+### Recommended rules
 
 These rules help to increase yield and robustness. Eg. using redundant vias.
 
@@ -332,13 +332,13 @@ Test chip needs to obey at least the manufacturing rules.
 
 All rules discussed are included in manufacturing rules but latchup rule , antenna and recommended rules can be ignored with some risk.
 
-**ERC (electrical rule check)**
+### ERC (electrical rule check)
 
 These are condition due to which circuit may get damaged due to electrical property.
 
 Eg Electromigration, Overvoltage conditions.
 
-DRC Labs:
+### DRC Labs
 
 Source the script &quot;./run\_magic&quot; to open magic with the current process
 
@@ -358,7 +358,7 @@ To avoid notch rule select the area and shift it by selecting shift+a and 2468 k
 
 Drc fixed snapshot Exercise 1
 
-**Vias**
+Vias
 
 Vias can also be fixed if its size is not matching, we can resize them like notch.
 
@@ -368,7 +368,7 @@ We can see contact cut by using cif see MCON command (MCON is the element it is 
 
 Exercise 2 Fixed (Via DRC)
 
-**Area and hole**
+Area and hole
 
 Minimum area error occurs when we move from li to m2 where only a small m1 is used hence less error.
 
@@ -421,7 +421,7 @@ Density rule fixed
 Metal1 density increased from 5% to 58.1% after using the python script
 
 ## Day 4
-
+### RTL to GDSII flow
 Open lane flow:
  It is a flow to convert RTL to GDSII using RTL file and PDK files as input.
 
@@ -499,7 +499,7 @@ We can run the openlane flow by two ways.
 
 ## Day 5
 
-**Introduction:**
+### Introduction:
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_1_PV_flow.png)
 
@@ -534,7 +534,7 @@ Simulation netlist is used to extract parasitic for more accurate delay calculat
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D5_3_layout_resistance.png)
 
-**Netgen:**
+### Netgen
 
 Tcl based interpreter.
 
@@ -546,7 +546,7 @@ It is advised to keep design and testbench in separate file as we don&#39;t need
 
 Netgen works with time complexity of O(logN) so easily scalable.
 
-**Netgen core matching algorithm**
+#### Netgen core matching algorithm
 
 The algo runs on iteration. On first iteration it creates list of devices and nets. And it combines both netlist and it keeps tag of which net or device belongs to which netlist.
 
@@ -564,7 +564,7 @@ Partitions modified with iterations
 
 If they don&#39;t match by the last iteration then these errors will be dumped by tool.
 
-**Netgen prematch analysis**
+#### Netgen prematch analysis
 
 Some elements like wrapper adds another hierarchy to layout. Netgen counts number of elements and handles them.
 
@@ -588,7 +588,7 @@ The partition theory explained earlier might fail if there are symmetrical compo
  Analyze device mismatch first after solving them only go for nets mismatch.
 - Solve easy to understand error first then others (like LEC)
 
-**Labs**
+### Labs
 
 Lab files are cloned from &quot;[https://github.com/rtimothyedwards/vsd\_lvs\_lab.git](https://github.com/rtimothyedwards/vsd_lvs_lab.git)&quot;
 
