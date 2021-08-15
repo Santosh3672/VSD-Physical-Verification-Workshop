@@ -1,4 +1,4 @@
-![Caption1](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Workshop-Flyer.jpeg)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Workshop-Flyer.jpeg)
 # VSD Physical verification using Sky 130 workshop Aug 11-16
 ## Day 1:
 
