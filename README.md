@@ -53,12 +53,12 @@ Naming of library: sky130\_vendor\_library-type[-name]
 
 Cellname : libraryname\_\_gatename
 
-1. I/O cells
-2. Primitive devices:
+2. I/O cells
+3. Primitive devices:
 
 Contains elements with very specific layout normally provided by foundry. Eg, RF resistor (carefully prepared to avoid noise and signal attenuation), ESD protection devices, parallel plate capacitance.
 
-1. 3rd party libraries: Like SRAM and NVRAM
+4. 3rd party libraries: Like SRAM and NVRAM
 
 ![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D1_analog_sim_console.png)
 
