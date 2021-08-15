@@ -60,11 +60,11 @@ Contains elements with very specific layout normally provided by foundry. Eg, RF
 
 1. 3rd party libraries: Like SRAM and NVRAM
 
-![](RackMultipart20210815-4-n15kyl_html_f27bb50e0c0f43a7.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D1_analog_sim_console.png)
 
 Above is the console snippet for analog simulation of an inverter. Extract netlist was used for simulation.
 
-![](RackMultipart20210815-4-n15kyl_html_e6977aca3285ca06.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D1_analog_sim_plot.png)
 
 Result of above simulation to verify that the inverter runs as expected in presence of parasitic capacitances as well.
 
@@ -78,7 +78,7 @@ DRC (Design rule check): To check if the layout satisfies foundry rules for mask
 
 LVS (layout vs schematic): To verify that the layout matches a simulation netlist by electrical connectivity.
 
-![](RackMultipart20210815-4-n15kyl_html_849504d29dffe673.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_1%20PD%20flow%20with%20DRC%20%26%20LVS.png)
 
 Physical design flow in with DRC and LVS
 
@@ -88,7 +88,7 @@ GDS (graphic design system) is a stream format which stores the information abou
 
 It is stored in format of layer:purpose as integers which are specific to process. Due to this it is hard to understand without a layout tool
 
-![](RackMultipart20210815-4-n15kyl_html_a85ebf3910a35d45.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_2%20Data%20in%20GDS%20file.png)
 
 Data in GDS file
 
@@ -96,7 +96,7 @@ Other data like wires and power supply can be found in LEF and DEF files.
 
 Gds read \&lt;file\_location\&gt; is the command to read it in magic
 
-![](RackMultipart20210815-4-n15kyl_html_a8ed9673992c46e7.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_3%20and%20gate%20gds%20in%20magic.png)
 
 2 input and gate gds file read in magic
 
@@ -112,7 +112,7 @@ It is a process where parasitic information is &quot;extracted&quot; from the la
 
 Extraction in magic:
 
-![](RackMultipart20210815-4-n15kyl_html_e0f95b2f3b223ada.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_4%20Extraction%20flow%20magic.png)
 
 Extraction flow in magic
 
@@ -144,11 +144,11 @@ DRC rules:
 
 1. Edge based rules: checks edges of elements (fast method)
 
-![](RackMultipart20210815-4-n15kyl_html_61fb754a90d34295.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_5%20edge%20based%20DRC%20rule.png)
 
 1. Boolean geometry rules: performs Boolean operator on the layout elements.
 
-![](RackMultipart20210815-4-n15kyl_html_90dcc15c2bd48daa.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_6%20boolean%20based%20DRC%20rule.png)
 
 XOR operator is used to find difference between two version of same the layout. It is used to check if only the intended portion of design is changed or if any cell is misplaced by mistake.
 
@@ -161,7 +161,7 @@ To do XOR operation in magic:
 
 In the lab I intentionally misplaced an and cell in both horizontal and vertical direction. The XOR produces following result.
 
-![](RackMultipart20210815-4-n15kyl_html_49c9a6b7cde6ad3e.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_7%20XOR%20operation%20in%20magic.png)
 
 **LVS:**
 
@@ -177,7 +177,7 @@ Netgen tool is used to run LVS following command is used
 
 netgen -batch lvs &quot;layout.spice\_loc designsubckt&quot; &quot;reference.spice\_location refsubckt&quot;
 
-![](RackMultipart20210815-4-n15kyl_html_574d620cc980f4b8.png)
+![](https://github.com/Santosh3672/VSD-Physical-Verification-Workshop/blob/main/Pics/D2_8%20C%20extracted%20LVS%20result.png)
 
 Snippet of LVS run between C extracted layout and library cell spice model
 
